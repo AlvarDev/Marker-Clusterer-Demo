@@ -3,6 +3,8 @@ package com.alvardev.android.markerclustererdemo;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
+import com.alvardev.android.markerclustererdemo.entities.MyMarker;
+import com.alvardev.android.markerclustererdemo.util.Util;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -10,10 +12,17 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.maps.android.clustering.ClusterManager;
+
+import java.util.List;
 
 public class MapsWithActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    /**
+     *  Declare a variable for the cluster manager.
+     **/
+    private ClusterManager<MyMarker> mClusterManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,21 +34,12 @@ public class MapsWithActivity extends FragmentActivity implements OnMapReadyCall
         mapFragment.getMapAsync(this);
     }
 
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mClusterManager = new ClusterManager<>(this, mMap);
 
-        // Add a marker in Sydney and move the camera
+        // Add a marker
         LatLng sydney = new LatLng(-25.433034, -49.275836);
         mMap.addMarker(new MarkerOptions().position(sydney).title(getString(R.string.s_positivo_university)));
 
@@ -49,5 +49,21 @@ public class MapsWithActivity extends FragmentActivity implements OnMapReadyCall
                 .tilt(45)                   // Sets the tilt of the camera to 30 degrees
                 .build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+        mMap.setOnCameraChangeListener(mClusterManager);
+        mMap.setOnMarkerClickListener(mClusterManager);
+
+        setMarkers();
     }
+
+    private void setMarkers(){
+        List<MyMarker> myMarkers = Util.getMarkers();
+
+        for (MyMarker marker : myMarkers) {
+            mClusterManager.addItem(marker);
+        }
+    }
+
+
+
 }
