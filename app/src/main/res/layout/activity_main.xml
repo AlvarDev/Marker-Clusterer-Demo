@@ -3,28 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center"
     tools:context="com.alvardev.android.markerclustererdemo.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/img_io_logo" />
 
     <Button
         android:id="@+id/bt_with"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:background="@color/colorAccent"
-        android:layout_marginStart="16dp"
-        android:textColor="@color/colorWhite"
         android:text="@string/s_with"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="@color/colorWhite" />
 
     <Button
         android:id="@+id/bt_without"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
-        android:layout_marginStart="16dp"
-        android:textColor="@color/colorWhite"
-        android:text="@string/s_without"/>
+        android:text="@string/s_without"
+        android:textColor="@color/colorWhite" />
 
 </LinearLayout>
