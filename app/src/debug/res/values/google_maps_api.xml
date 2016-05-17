@@ -1,0 +1,21 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=60:40:00:85:84:B8:68:5B:38:3C:79:EF:70:7B:38:B5:CD:B3:E3:31%3Bcom.alvardev.android.markerclustererdemo
+
+    You can also add your credentials to an existing key, using this line:
+    60:40:00:85:84:B8:68:5B:38:3C:79:EF:70:7B:38:B5:CD:B3:E3:31;com.alvardev.android.markerclustererdemo
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyCQ17mI4couXs3bJwpl32BNDewPdPh428k
+    </string>
+</resources>

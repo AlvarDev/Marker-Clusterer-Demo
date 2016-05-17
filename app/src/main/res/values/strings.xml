@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Marker Clusterer Demo</string>
+    <string name="title_activity_maps_with">Map</string>
+    <string name="google_app_id">battlesoultry</string>
+    <string name="title_activity_maps_without">Map</string>
+
+
+    <string name="s_with">Maps with Maker Clusterer</string>
+    <string name="s_without">Maps without Maker Clusterer</string>
+    <string name="s_positivo_university">Universidade Positivo</string>
+</resources>
